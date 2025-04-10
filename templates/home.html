@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars Price Predictor</title>
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJw6f4V+a6kCVmDhQdX6jD0m9lXb51z0kMvY6os9f0YYbsnBdZpX7eHcx5aa" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://www.marketplace.org/wp-content/uploads/2023/10/GettyImages-1534547914.jpg?fit=2880%2C1920'); /* Image as background */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+        }
+        .login {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            background-color: #ffffff; /* Solid white background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            margin-bottom: 15px; /* More spacing between fields */
+        }
+        /* Scrollbar for long dropdowns */
+        select.form-control {
+            max-height: 150px; /* Adjust height as needed */
+            overflow-y: auto;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: red; /* Red button */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            color: black;
+        }
+        .btn-primary:hover {
+            background-color: darkred;
+        }
+        .result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .placeholder {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login">
+        <h1>Used Cars Price Predictor</h1>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+           <!-- Brand Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <select class="form-control" name="brand" required>
+                    <option class="placeholder" selected disabled value="">Select your Brand</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Jeep">Jeep</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Buick">Buick</option>
+                    <option value="Kia">Kia</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Land Rover">Land Rover</option>
+                    <option value="INFINITI">INFINITI</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Mitsubishi">Mitsubishi</option>
+                    <option value="Lexus">Lexus</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Chrysler">Chrysler</option>
+                    <option value="Mazda">Mazda</option>
+                    <option value="Acura">Acura</option>
+                    <option value="Maserati">Maserati</option>
+                    <option value="Dodge">Dodge</option>
+                    <option value="Subaru">Subaru</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Jaguar">Jaguar</option>
+                    <option value="GMC">GMC</option>
+                    <option value="Cadillac">Cadillac</option>
+                    <option value="Ram">Ram</option>
+                    <option value="Alfa Romeo">Alfa Romeo</option>
+                    <option value="FIAT">FIAT</option>
+                    <option value="Lincoln">Lincoln</option>
+                    <option value="Aston Martin">Aston Martin</option>
+                    <option value="MINI">MINI</option>
+                    <option value="Genesis">Genesis</option>
+                    <option value="Scion">Scion</option>
+                    <option value="Karma">Karma</option>
+                    <option value="Bentley">Bentley</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Pontiac">Pontiac</option>
+                </select>
+            </div>
+
+            <!-- Exterior Color Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Exterior Color</label>
+                <select class="form-control" name="color_exterior" required>
+                    <option class="placeholder" selected disabled value="">Select Exterior Color</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Red">Red</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Unknown">Unknown</option>
+                    <option value="Green">Green</option>
+                    <option value="Tan">Tan</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Purple">Purple</option>
+                </select>
+            </div>            
+
+            <!-- Interior Color Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Interior Color</label>
+                <select class="form-control" name="color_interior" required>
+                    <option class="placeholder" selected disabled value="">Select Interior Color</option>
+                    <option value="Unknown">Unknown</option>
+                    <option value="Black">Black</option>
+                    <option value="Beige">Beige</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="White">White</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Yellow">Yellow</option>
+                </select>
+            </div>            
+
+            <!-- Year Input -->
+            <div class="mb-3">
+                <label class="form-label">Select the year from 2000 on</label>
+                <input class="form-control" type="number" name="year" placeholder="Select the year" min="2000" max="2024" required />
+            </div>
+
+            <!-- Miles Input -->
+            <div class="mb-3">
+                <label class="form-label">Select the number of miles (between 500 and 180000)</label>
+                <input class="form-control" type="number" name="miles" placeholder="Select the number of miles" min="500" max="180000" required />
+            </div>
+
+            <!-- Accidents Input -->
+            <div class="mb-3">
+                <label class="form-label">Number of accidents</label>
+                <input class="form-control" type="number" name="accidents" placeholder="Number of accidents" min="0" max="5" required />
+            </div>
+
+            <!-- Number of Owners Input -->
+            <div class="mb-3">
+                <label class="form-label">Number of owners</label>
+                <input class="form-control" type="number" name="number_of_owners" placeholder="Number of owners" min="0" max="7" required />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict the car's price" />
+            </div>
+        </form>
+
+        <!-- Display the Prediction Result -->
+        <div class="result">
+            {% if results %}
+                <p>The predicted price is: ${{ results }}</p>
+            {% else %}
+                <p>Submit the form to see the prediction.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
