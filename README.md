@@ -1,5 +1,12 @@
 ## End to End Used Car Prediction Price with Deployment in Azure
 
+
+## Link to the application:
+
+https://end-to-end-used-car-prediction-website.onrender.com
+
+## About the Project
+
 The Project contains the following code files that will be shortly explained:
 
 * setup.py
@@ -91,58 +98,3 @@ This code defines a Flask web application with two routes: the home page (`/`) a
 To give you a quick overview of how the app works, I’ve created a demonstration video. While setting up the app locally can take a few minutes, this video allows you to experience the website without any setup.
 
 [![Watch the Demo](https://img.youtube.com/vi/1nx-VaPryHE/0.jpg)](https://www.youtube.com/watch?v=1nx-VaPryHE)
-
-
-Additionally, I am actively working on hosting the app on a cloud platform to make it even easier to access. 
-
-
-## Website
-
-To run it the following steeps have to be followed:
-
-
-    Clone the repository:
-        Open a terminal on your local machine.
-        Navigate to the directory where you want to clone the repository.
-        Run the following command to clone the repo:
-
-    git clone https://github.com/Manuel17410/End-to-End-Used-Car-Prediction-Website-with-Deployment-in-Azure-.git
-
-
-Navigate to the project folder:
-
-    Change into the cloned repository directory:
-
-    cd End-to-End-Used-Car-Prediction-Website-with-Deployment-in-Azure-
-
-Install necessary dependencies:
-
-    install them by running:
-
-    pip install -r requirements.txt
-
-Open the project in Visual Studio Code:
-
-    Open Visual Studio Code from the terminal by running:
-
-    code .
-
-    This command will open the project in Visual Studio Code.
-
-Run the application:
-
-    In Visual Studio Code, open the terminal (if it's not already open).
-    Run the app by typing:
-
-    python app.py
-
-    This will start your Flask (or any other web framework) application.
-
-Open the app in your browser:
-
-    Once the server is running, open a web browser and go to:
-
-http://127.0.0.1:5000/predictdata
-
-This should open your web app on the local server.
-
