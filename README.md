@@ -5,6 +5,12 @@
 
 https://end-to-end-used-car-prediction-website.onrender.com
 
+## Video Demonstration of the App on YouTube (In case the link above does not work)
+
+To give you a quick overview of how the app works.
+
+[![Watch the Demo](https://img.youtube.com/vi/1nx-VaPryHE/0.jpg)](https://www.youtube.com/watch?v=1nx-VaPryHE)
+
 ## About the Project
 
 The Project contains the following code files that will be shortly explained:
@@ -91,10 +97,3 @@ It defines the FrontEnd using HTML.
 ## app.py
 
 This code defines a Flask web application with two routes: the home page (`/`) and a prediction page (`/predictdata`). The home page renders an HTML template (`index.html`), while the prediction page handles both GET and POST requests. For POST requests, it collects user input (e.g., car details), creates a `CustomData` object, and uses a `PredictPipeline` to generate predictions. The results are then displayed on the same page. The application runs in debug mode on any available IP address.
-
-
-## Video Demonstration of the App on YouTube
-
-To give you a quick overview of how the app works, I’ve created a demonstration video. While setting up the app locally can take a few minutes, this video allows you to experience the website without any setup.
-
-[![Watch the Demo](https://img.youtube.com/vi/1nx-VaPryHE/0.jpg)](https://www.youtube.com/watch?v=1nx-VaPryHE)
