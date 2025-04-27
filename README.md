@@ -5,6 +5,8 @@
 
 https://end-to-end-used-car-prediction-website.onrender.com
 
+Please bear in mind that sometimes the link may take a little time to load.
+
 ## Video Demonstration of the App on YouTube (In case the link above does not work)
 
 To give you a quick overview of how the app works.
